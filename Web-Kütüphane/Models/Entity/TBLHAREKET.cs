@@ -23,7 +23,7 @@ namespace Web_Kütüphane.Models.Entity
         public int ID { get; set; }
         public Nullable<int> KITAP { get; set; }
         public Nullable<int> UYE { get; set; }
-        public Nullable<int> PERSONEL { get; set; }
+        public Nullable<byte> PERSONEL { get; set; }
         public Nullable<System.DateTime> ALISTARIH { get; set; }
         public Nullable<System.DateTime> İADETARİH { get; set; }
     
@@ -31,5 +31,6 @@ namespace Web_Kütüphane.Models.Entity
         public virtual ICollection<TBLCEZALAR> TBLCEZALAR { get; set; }
         public virtual TBLKITAP TBLKITAP { get; set; }
         public virtual TBLUYELER TBLUYELER { get; set; }
+        public virtual TBLPERSONEL TBLPERSONEL { get; set; }
     }
 }

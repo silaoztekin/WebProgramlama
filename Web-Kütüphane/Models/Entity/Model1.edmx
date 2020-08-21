@@ -33,7 +33,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KITAP" Type="int" />
           <Property Name="UYE" Type="int" />
-          <Property Name="PERSONEL" Type="int" />
+          <Property Name="PERSONEL" Type="tinyint" />
           <Property Name="ALISTARIH" Type="smalldatetime" />
           <Property Name="İADETARİH" Type="smalldatetime" />
         </EntityType>
@@ -70,7 +70,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PERSONEL" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONEL" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TBLUYELER">
           <Key>
@@ -120,27 +120,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBLHAREKET_TBLKITAP">
-          <End Role="TBLKITAP" Type="Self.TBLKITAP" Multiplicity="0..1" />
+        <Association Name="FK_TBLHAREKET_TBLPERSONEL">
+          <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
           <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TBLKITAP">
+            <Principal Role="TBLPERSONEL">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TBLHAREKET">
-              <PropertyRef Name="KITAP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBLHAREKET_TBLUYELER">
-          <End Role="TBLUYELER" Type="Self.TBLUYELER" Multiplicity="0..1" />
-          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBLUYELER">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="TBLHAREKET">
-              <PropertyRef Name="UYE" />
+              <PropertyRef Name="PERSONEL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -186,12 +174,8 @@
             <End Role="TBLUYELER" EntitySet="TBLUYELER" />
             <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBLHAREKET_TBLKITAP" Association="Self.FK_TBLHAREKET_TBLKITAP">
-            <End Role="TBLKITAP" EntitySet="TBLKITAP" />
-            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBLHAREKET_TBLUYELER" Association="Self.FK_TBLHAREKET_TBLUYELER">
-            <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+          <AssociationSet Name="FK_TBLHAREKET_TBLPERSONEL" Association="Self.FK_TBLHAREKET_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
             <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLKITAP_TBLKATEGORİ" Association="Self.FK_TBLKITAP_TBLKATEGORİ">
@@ -237,12 +221,13 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KITAP" Type="Int32" />
           <Property Name="UYE" Type="Int32" />
-          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="PERSONEL" Type="Byte" />
           <Property Name="ALISTARIH" Type="DateTime" Precision="0" />
           <Property Name="İADETARİH" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TBLCEZALAR" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLHAREKET" ToRole="TBLCEZALAR" />
           <NavigationProperty Name="TBLKITAP" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLHAREKET" ToRole="TBLKITAP" />
           <NavigationProperty Name="TBLUYELER" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLHAREKET" ToRole="TBLUYELER" />
+          <NavigationProperty Name="TBLPERSONEL" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL" FromRole="TBLHAREKET" ToRole="TBLPERSONEL" />
         </EntityType>
         <EntityType Name="TBLKASA">
           <Key>
@@ -281,7 +266,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PERSONEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL" FromRole="TBLPERSONEL" ToRole="TBLHAREKET" />
         </EntityType>
         <EntityType Name="TBLUYELER">
           <Key>
@@ -416,7 +402,23 @@
             <End Role="TBLYAZAR" EntitySet="TBLYAZAR" />
             <End Role="TBLKITAP" EntitySet="TBLKITAP" />
           </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLPERSONEL" Association="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_TBLHAREKET_TBLPERSONEL">
+          <End Type="DBKUTUPHANEModel.TBLPERSONEL" Role="TBLPERSONEL" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.TBLHAREKET" Role="TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

@@ -1,0 +1,34 @@
+﻿@model Web_Kütüphane.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Verme İşlemleri</h2>
+<div style="margin-bottom:20px; margin-top:20px"></div>
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Üye ID</label>
+        @Html.TextBoxFor(k => k.UYE, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(k => k.KITAP, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Alış Tarihi</label>
+        <input type="text" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="İADETARİH" value="@DateTime.Now.AddDays(7).ToShortDateString()" /> @*Üyenin kitabı iadesi için verilen süre*@
+</div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color:blueviolet; color:white">Kitabı Ödünç Ver</button>
+    </div>
+</form>

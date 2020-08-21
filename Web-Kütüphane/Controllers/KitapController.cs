@@ -11,10 +11,15 @@ namespace Web_Kütüphane.Controllers
     {
         // GET: Kitap
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var kitaplar = db.TBLKITAP.ToList();
-            return View(kitaplar);
+            var kitaplar = from k in db.TBLKITAP select k;
+            if (!string.IsNullOrEmpty(p))
+            {
+                kitaplar = kitaplar.Where(m => m.AD.Contains(p));
+            }
+           // var kitaplar = db.TBLKITAP.ToList();
+            return View(kitaplar.ToList()); ;
         }
         [HttpGet]
         public ActionResult KitapEkle()
@@ -61,10 +66,10 @@ namespace Web_Kütüphane.Controllers
         public ActionResult KitapGetir(int id)
         {
             var ktp = db.TBLKITAP.Find(id);
-            List<SelectListItem> deger1 = (from i in db.TBLYAZAR.ToList()
+            List<SelectListItem> deger1 = (from i in db.TBLKATEGORİ.ToList()
                                            select new SelectListItem
                                            {
-                                               Text = i.AD + ' ' + i.SOYAD,
+                                               Text = i.AD,
                                                Value = i.ID.ToString()
                                            }).ToList();
 

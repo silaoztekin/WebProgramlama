@@ -28,7 +28,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KITAP" Type="int" />
     <Property Name="UYE" Type="int" />
-    <Property Name="PERSONEL" Type="int" />
+    <Property Name="PERSONEL" Type="tinyint" />
     <Property Name="ALISTARIH" Type="smalldatetime" />
     <Property Name="İADETARİH" Type="smalldatetime" />
   </EntityType>
@@ -65,7 +65,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PERSONEL" Type="varchar" MaxLength="50" />
+    <Property Name="PERSONEL" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="TBLUYELER">
     <Key>
@@ -115,27 +115,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TBLHAREKET_TBLKITAP">
-    <End Role="TBLKITAP" Type="Self.TBLKITAP" Multiplicity="0..1" />
+  <Association Name="FK_TBLHAREKET_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
     <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TBLKITAP">
+      <Principal Role="TBLPERSONEL">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="TBLHAREKET">
-        <PropertyRef Name="KITAP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBLHAREKET_TBLUYELER">
-    <End Role="TBLUYELER" Type="Self.TBLUYELER" Multiplicity="0..1" />
-    <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBLUYELER">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TBLHAREKET">
-        <PropertyRef Name="UYE" />
+        <PropertyRef Name="PERSONEL" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -181,12 +169,8 @@
       <End Role="TBLUYELER" EntitySet="TBLUYELER" />
       <End Role="TBLCEZALAR" EntitySet="TBLCEZALAR" />
     </AssociationSet>
-    <AssociationSet Name="FK_TBLHAREKET_TBLKITAP" Association="Self.FK_TBLHAREKET_TBLKITAP">
-      <End Role="TBLKITAP" EntitySet="TBLKITAP" />
-      <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBLHAREKET_TBLUYELER" Association="Self.FK_TBLHAREKET_TBLUYELER">
-      <End Role="TBLUYELER" EntitySet="TBLUYELER" />
+    <AssociationSet Name="FK_TBLHAREKET_TBLPERSONEL" Association="Self.FK_TBLHAREKET_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
       <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
     </AssociationSet>
     <AssociationSet Name="FK_TBLKITAP_TBLKATEGORİ" Association="Self.FK_TBLKITAP_TBLKATEGORİ">

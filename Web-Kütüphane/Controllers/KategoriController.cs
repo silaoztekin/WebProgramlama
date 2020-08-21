@@ -18,7 +18,7 @@ namespace Web_Kütüphane.Controllers
             return View(degerler);
         }
         [HttpGet]
-        public ActionResult Kategoriekle()
+        public ActionResult KategoriEkle()
         {
             return View();       
         }
