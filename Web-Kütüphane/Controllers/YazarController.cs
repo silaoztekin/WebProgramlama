@@ -13,7 +13,8 @@ namespace Web_Kütüphane.Controllers
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
-            var degerler = db.TBLYAZAR.Where(x => x.SILINDIMI == false).ToList();
+            var degerler = db.TBLYAZAR.ToList();
+            //var degerler = db.TBLYAZAR.Where(x => x.SILINDIMI == false).ToList();
             return View(degerler);
         }
         [HttpGet]

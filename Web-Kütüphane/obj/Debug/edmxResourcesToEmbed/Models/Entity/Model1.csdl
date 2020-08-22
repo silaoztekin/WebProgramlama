@@ -37,6 +37,8 @@
     <NavigationProperty Name="TBLKITAP" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLHAREKET" ToRole="TBLKITAP" />
     <NavigationProperty Name="TBLUYELER" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLHAREKET" ToRole="TBLUYELER" />
     <NavigationProperty Name="TBLPERSONEL" Relationship="DBKUTUPHANEModel.FK_TBLHAREKET_TBLPERSONEL" FromRole="TBLHAREKET" ToRole="TBLPERSONEL" />
+    <Property Name="ISLEMDURUM" Type="Boolean" />
+    <Property Name="UYEGETİRTARİH" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="TBLKASA">
     <Key>
@@ -69,6 +71,7 @@
     <NavigationProperty Name="TBLHAREKET" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLKITAP" ToRole="TBLHAREKET" />
     <NavigationProperty Name="TBLKATEGORİ" Relationship="Self.FK_TBLKITAP_TBLKATEGORİ" FromRole="TBLKITAP" ToRole="TBLKATEGORİ" />
     <NavigationProperty Name="TBLYAZAR" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLKITAP" ToRole="TBLYAZAR" />
+    <Property Name="KITAPRESIM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TBLPERSONEL">
     <Key>

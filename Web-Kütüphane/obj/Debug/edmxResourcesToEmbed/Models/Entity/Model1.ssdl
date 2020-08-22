@@ -30,7 +30,9 @@
     <Property Name="UYE" Type="int" />
     <Property Name="PERSONEL" Type="tinyint" />
     <Property Name="ALISTARIH" Type="smalldatetime" />
+    <Property Name="UYEGETİRTARİH" Type="smalldatetime" />
     <Property Name="İADETARİH" Type="smalldatetime" />
+    <Property Name="ISLEMDURUM" Type="bit" />
   </EntityType>
   <EntityType Name="TBLKASA">
     <Key>
@@ -59,6 +61,7 @@
     <Property Name="YAYINEVİ" Type="varchar" MaxLength="50" />
     <Property Name="SAYFA" Type="varchar" MaxLength="4" />
     <Property Name="DURUM" Type="bit" />
+    <Property Name="KITAPRESIM" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="TBLPERSONEL">
     <Key>

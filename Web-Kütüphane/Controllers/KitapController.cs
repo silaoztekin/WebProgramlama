@@ -93,6 +93,7 @@ namespace Web_Kütüphane.Controllers
             kitap.BASIMYIL = p.BASIMYIL;
             kitap.SAYFA = p.SAYFA;
             kitap.YAYINEVİ = p.YAYINEVİ;
+            kitap.DURUM = true;
             var ktg = db.TBLKATEGORİ.Where(k => k.ID == p.TBLKATEGORİ.ID).FirstOrDefault();
             var yzr = db.TBLYAZAR.Where(y => y.ID == p.TBLYAZAR.ID).FirstOrDefault();
             kitap.KATEGORİ = ktg.ID;

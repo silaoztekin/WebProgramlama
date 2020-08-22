@@ -27,6 +27,8 @@
     <EntitySetMapping Name="TBLHAREKET">
       <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLHAREKET">
         <MappingFragment StoreEntitySet="TBLHAREKET">
+          <ScalarProperty Name="UYEGETİRTARİH" ColumnName="UYEGETİRTARİH" />
+          <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="KITAP" ColumnName="KITAP" />
           <ScalarProperty Name="UYE" ColumnName="UYE" />
@@ -56,6 +58,7 @@
     <EntitySetMapping Name="TBLKITAP">
       <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLKITAP">
         <MappingFragment StoreEntitySet="TBLKITAP">
+          <ScalarProperty Name="KITAPRESIM" ColumnName="KITAPRESIM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="KATEGORİ" ColumnName="KATEGORİ" />
