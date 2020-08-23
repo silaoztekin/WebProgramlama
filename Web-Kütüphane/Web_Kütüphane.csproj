@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IslemController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -167,6 +168,9 @@
     <Compile Include="Models\Entity\TBLCEZALAR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBLHAKKIMIZDA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TBLHAREKET.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -188,6 +192,10 @@
     <Compile Include="Models\Entity\TBLYAZAR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBLİLETİSİM.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Siniflarim\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +220,44 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="web2\.gitignore" />
+    <Content Include="web2\dist\401.html" />
+    <Content Include="web2\dist\404.html" />
+    <Content Include="web2\dist\500.html" />
+    <Content Include="web2\dist\assets\demo\chart-area-demo.js" />
+    <Content Include="web2\dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="web2\dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="web2\dist\assets\demo\datatables-demo.js" />
+    <Content Include="web2\dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="web2\dist\charts.html" />
+    <Content Include="web2\dist\css\styles.css" />
+    <Content Include="web2\dist\index.html" />
+    <Content Include="web2\dist\js\scripts.js" />
+    <Content Include="web2\dist\layout-sidenav-light.html" />
+    <Content Include="web2\dist\layout-static.html" />
+    <Content Include="web2\dist\login.html" />
+    <Content Include="web2\dist\password.html" />
+    <Content Include="web2\dist\register.html" />
+    <Content Include="web2\dist\tables.html" />
+    <Content Include="web2\index.html" />
+    <Content Include="web2\scripts\build-assets.js" />
+    <Content Include="web2\scripts\build-pug.js" />
+    <Content Include="web2\scripts\build-scripts.js" />
+    <Content Include="web2\scripts\build-scss.js" />
+    <Content Include="web2\scripts\clean.js" />
+    <Content Include="web2\scripts\render-assets.js" />
+    <Content Include="web2\scripts\render-pug.js" />
+    <Content Include="web2\scripts\render-scripts.js" />
+    <Content Include="web2\scripts\render-scss.js" />
+    <Content Include="web2\scripts\sb-watch.js" />
+    <Content Include="web2\scripts\start-debug.js" />
+    <Content Include="web2\scripts\start.js" />
+    <Content Include="web2\src\assets\demo\chart-area-demo.js" />
+    <Content Include="web2\src\assets\demo\chart-bar-demo.js" />
+    <Content Include="web2\src\assets\demo\chart-pie-demo.js" />
+    <Content Include="web2\src\assets\demo\datatables-demo.js" />
+    <Content Include="web2\src\assets\img\error-404-monochrome.svg" />
+    <Content Include="web2\src\js\scripts.js" />
     <Content Include="web\assets\img\avataaars.svg" />
     <Content Include="web\assets\img\birgenc.jpg" />
     <Content Include="web\assets\img\budala %281%29.jpg" />
@@ -234,6 +280,9 @@
     <Content Include="web\assets\mail\contact_me.php" />
     <Content Include="web\assets\mail\jqBootstrapValidation.js" />
     <Content Include="web\css\styles.css" />
+    <Content Include="web\galeri\L1.jpg" />
+    <Content Include="web\galeri\L2.jpg" />
+    <Content Include="web\galeri\L3.png" />
     <Content Include="web\index.html" />
     <Content Include="web\js\scripts.js" />
     <EntityDeploy Include="Models\Entity\Model1.edmx">
@@ -290,6 +339,51 @@
     <Content Include="Views\Odunc\Odunciade.cshtml" />
     <Content Include="Views\Islem\Index.cshtml" />
     <Content Include="Views\Vitrin\Index.cshtml" />
+    <Content Include="web2\.browserslistrc" />
+    <Content Include="web2\.travis.yml" />
+    <Content Include="web2\LICENSE" />
+    <Content Include="web2\package-lock.json" />
+    <Content Include="web2\package.json" />
+    <Content Include="web2\README.md" />
+    <Content Include="web2\src\pug\layouts\authentication.pug" />
+    <Content Include="web2\src\pug\layouts\dashboard.pug" />
+    <Content Include="web2\src\pug\layouts\error.pug" />
+    <Content Include="web2\src\pug\layouts\includes\footer.pug" />
+    <Content Include="web2\src\pug\layouts\includes\head\css.pug" />
+    <Content Include="web2\src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="web2\src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="web2\src\pug\layouts\includes\head\title.pug" />
+    <Content Include="web2\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="web2\src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="web2\src\pug\layouts\includes\scripts.pug" />
+    <Content Include="web2\src\pug\pages\401.pug" />
+    <Content Include="web2\src\pug\pages\404.pug" />
+    <Content Include="web2\src\pug\pages\500.pug" />
+    <Content Include="web2\src\pug\pages\charts.pug" />
+    <Content Include="web2\src\pug\pages\includes\datatable.pug" />
+    <Content Include="web2\src\pug\pages\includes\page-header.pug" />
+    <Content Include="web2\src\pug\pages\index.pug" />
+    <Content Include="web2\src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="web2\src\pug\pages\layout-static.pug" />
+    <Content Include="web2\src\pug\pages\login.pug" />
+    <Content Include="web2\src\pug\pages\password.pug" />
+    <Content Include="web2\src\pug\pages\register.pug" />
+    <Content Include="web2\src\pug\pages\tables.pug" />
+    <Content Include="web2\src\scss\layout\_authentication.scss" />
+    <Content Include="web2\src\scss\layout\_dashboard-default.scss" />
+    <Content Include="web2\src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="web2\src\scss\layout\_error.scss" />
+    <Content Include="web2\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="web2\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="web2\src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="web2\src\scss\navigation\_nav.scss" />
+    <Content Include="web2\src\scss\navigation\_topnav.scss" />
+    <Content Include="web2\src\scss\styles.scss" />
+    <Content Include="web2\src\scss\variables\_navigation.scss" />
+    <Content Include="web2\src\scss\variables\_spacing.scss" />
+    <Content Include="web2\src\scss\_global.scss" />
+    <Content Include="web2\src\scss\_variables.scss" />
+    <Content Include="Views\Galeri\Galeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

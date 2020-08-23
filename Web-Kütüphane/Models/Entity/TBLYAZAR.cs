@@ -11,7 +11,8 @@ namespace Web_Kütüphane.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLYAZAR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +20,15 @@ namespace Web_Kütüphane.Models.Entity
         {
             this.TBLKITAP = new HashSet<TBLKITAP>();
         }
-    
+
         public int ID { get; set; }
+        [Required(ErrorMessage = "Yazar Adını Boş Geçemezsiniz!")]
         public string AD { get; set; }
+        [StringLength(20, ErrorMessage = "Soyad 20 karakterden fazla olamaz!")]
         public string SOYAD { get; set; }
         public string DETAY { get; set; }
         public Nullable<bool> SILINDIMI { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLKITAP> TBLKITAP { get; set; }
     }

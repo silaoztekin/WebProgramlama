@@ -24,6 +24,10 @@ namespace Web_Kütüphane.Controllers
         }
         public ActionResult YazarEkle(TBLYAZAR p)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YazarEkle");
+            }
             db.TBLYAZAR.Add(p);
             db.SaveChanges();
             return View();
@@ -31,7 +35,7 @@ namespace Web_Kütüphane.Controllers
         public ActionResult YazarSil(int id)
         {
             var yazar = db.TBLYAZAR.Find(id);
-            yazar.SILINDIMI = true;
+            db.TBLYAZAR.Remove(yazar);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
