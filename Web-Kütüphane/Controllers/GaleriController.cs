@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,16 @@ namespace Web_Kütüphane.Controllers
         {
             return View();        
         }
+        [HttpPost]
+        public ActionResult resimyukle(HttpPostedFileBase dosya)
+        {
+            if (dosya.ContentLength > 0)
+            {
+                string dosyayolu = Path.Combine(Server.MapPath("/web/galeri/"), Path.GetFileName(dosya.FileName));
+                dosya.SaveAs(dosyayolu);
+            }
+            return RedirectToAction("Galeri");
 
+        }
     }
 }
